@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <!-- including the code in this home page. -->
+    <title>SignIn</title>
+
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="container my-4">
+        <h3>Welcome Back! Please Sign In</h3>
+        <h6>It only takes a moment yours.😊</h6> 
+    </div>
+
+    <div class="container mt-4">
+        <form action="/user/signin" method="post">
+            <div class="mb-3">
+              <label for="Email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="email" style="width: 50%;">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="Password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="Password" name="password" style="width: 50%;">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+          </form>
+    </div>
+
+    <%- include('./partials/script') %>
+    <script>
+
+      const element = document.getElementById('setAlert');
+      if (element) {
+        setTimeout(() => {
+        element.className = 'alert alert-null';
+        element.style.display = 'none';
+      }, 1500);
+      }
+     
+    </script>
+    <%- include('./partials/removeButton') %>
+</body>
+</html>

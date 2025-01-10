@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Beyond the Words 💭</title>
+        <style>
+            /* General Styles */
+            body {
+                /* background-color: #f4f7fa; */
+                background-color: #161719;
+                ;
+                color: #333;
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Main Content Styling */
+            .content {
+                display: flex;
+                flex-wrap: wrap;
+                max-width: 1100px;
+                margin: 40px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+                gap: 30px;
+                animation: slideIn 1.3s ease-out;
+            }
+
+            /* Slide-in Animation for Main Content */
+            @keyframes slideIn {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-100%);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            /* Image Styling */
+            .image-container {
+                flex: 1;
+                width: 100%;
+                position: relative;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Responsive Image */
+            .image-container img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+            /* Text Styling */
+            .text-content {
+                flex: 1;
+                max-width: 50%;
+                min-width: 300px;
+                padding: 10px;
+            }
+
+            p {
+                font-size: 1.2rem;
+                line-height: 1.8;
+                color: #555;
+                text-align: justify;
+                margin-bottom: 20px;
+            }
+
+            /* Button Styling */
+            .btn-back {
+                border: 1px solid #3498db;
+                display: inline-block;
+                padding: 12px 20px;
+                font-size: 1.1rem;
+                text-decoration: none;
+                color: #3498db;
+                border-radius: 5px;
+                text-align: center;
+                transition: background-color 0.3s ease;
+                margin-top: 30px;
+            }
+
+            .btn-back:hover {
+                background-color: #217dbb;
+                color: #061926;
+            }
+
+            /* Heading with Emoji */
+            .svg-container {
+                font-size: 2.8rem;
+                border-bottom: 3px solid #3498db;
+                text-align: center;
+                color: #3498db;
+                font-weight: bold;
+                animation: fadeIn 1.6s ease-out;
+            }
+
+            .svg-container:hover {
+                animation-play-state: paused;
+                text-shadow: 4px 4px 10px rgba(219, 10, 10, 0.791);
+            }
+
+            /* @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+            }
+            60% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        } */
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-40px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Media Queries for Responsive Design */
+            @media (max-width: 991px) {
+                .svg-container {
+                    font-size: 2rem;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .svg-container {
+                    font-size: 1.7rem;
+                }
+
+                .content {
+                    flex-direction: column;
+                }
+
+                .image-container {
+                    max-width: 100%;
+                }
+
+                .text-content {
+                    max-width: 100%;
+                }
+            }
+
+            @media (max-width: 488px) {
+                .svg-container {
+                    font-size: 1.2rem;
+                    height: 75px;
+                }
+            }
+
+            @media (max-width: 363px) {
+                .content {
+                    flex-direction: column;
+                    padding: 15px;
+                }
+
+                .image-container {
+                    max-width: 100%;
+                }
+
+                .text-content {
+                    padding: 10px;
+                }
+
+                .btn-back {
+                    font-size: 0.9rem;
+                    padding: 10px 17 px;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+
+                .svg-container {
+                    font-size: 1rem;
+                    height: 60px;
+                }
+            }
+
+            /* Animation for the container */
+            .animate {
+                animation: bounceInFadeIn 1.5s ease-in-out both;
+            }
+
+
+
+            /* Keyframes for Bounce-In and Fade-In */
+            @keyframes bounceInFadeIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-30px) scale(0.9);
+                }
+
+                50% {
+                    opacity: 0.5;
+                    transform: translateY(10px) scale(1.05);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+
+            /* Image hover effect */
+            .text {
+                color: aliceblue;
+                text-decoration: none;
+            }
+
+            /* Text hover effect */
+            .text:hover {
+                color: aliceblue;
+                /* text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+                 */
+                text-shadow: 0 0 10px #fff, 0 0 20px #3498db, 0 0 30px #3498db
+            }
+
+
+
+            .animate img {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .animate img:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Adjust textarea styling */
+            .comment {
+                color: aliceblue;
+                width: 50%;
+            }
+
+            /* Animation for the comment section */
+            .comment {
+                animation: slideInComment 1.5s ease-out both;
+            }
+
+            /* Slide-in animation for the comment section */
+            @keyframes slideInComment {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            /* Hover effect on textarea */
+            textarea {
+                transition: box-shadow 0.3s ease, transform 0.3s ease;
+            }
+
+            /* Focus effect on textarea */
+            textarea:focus {
+                box-shadow: 0 0 15px rgba(52, 152, 219, 0.8);
+                transform: scale(1.02);
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+
+        <!-- Beautiful Heading with Emoji -->
+        <div class="container">
+            <svg width="100%" height="100" class="svg-container">
+                <defs>
+                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <text x="50%" y="50%" class="gradient-text" text-anchor="middle" dy=".3em" fill="url(#gradient1)">
+                    Welcome to the World of Blogs ✍️🌟
+                </text>
+            </svg>
+
+            <div class="content">
+                <div class="image-container">
+                    <img src="<%= blog.coverImageUrl %>" alt="Missing!">
+                </div>
+
+                <div class="text-content">
+                    <h2>
+                        <%= blog.title %>
+                    </h2>
+                    <p>
+                        <%= blog.body %>
+                    </p>
+                    <a href="/" class="btn-back">⬅️ Back to Home</a>
+                </div>
+            </div>
+        </div>
+        <% if (!locals.user) { %>
+            <div class="container">
+                <h1 style="color:aliceblue;">Comments(<%= comments.length %>)</h1>
+                <h5 style="color:rgba(240, 248, 255, 0.43);" >Please SignIn to comment on this blog 📝</h5>
+            </div>
+            
+        <% } %>
+        
+        <% if (locals.user) { %>
+            <div class="container mt-4 animate">
+               <a href="/"><img src="<%= blog.createdBy.profileImageUrl %>" width="50px" alt="missing"></a> 
+                <a href="/" class="text">
+                    <%= blog.createdBy.fullName %>
+                </a>
+            </div>
+            <div class="container mt-3 comment">
+                <h1>Comments(<%= comments.length %>)</h1>
+                <form class="container mt-3" action="/blog/comment/<%= blog._id %>" method="post">
+                    <div class="mb-3">
+                        <label for="comment">Comment</label>
+                        <textarea class="form-control" placeholder="Write your comment" id="comment" name="content"
+                            required rows="7" style="background-color: #212529; color:rgb(212, 219, 225)"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-success">Submit</button>
+                    </div>
+            </div>
+            </form>
+            </div>
+            <% } %>
+            <div class="mt-3">
+                <% comments.forEach(comment => { %>
+                    <div class="container mt-4 animate" style="padding-bottom: 10px;">
+                        <a href="/"><img src="<%= blog.createdBy.profileImageUrl %>" width="50px" alt="missing"></a>
+                        <a href="/" class="text">
+                            <%= blog.createdBy.fullName %>
+                        </a>
+                        <div style="color: rgb(252, 233, 211);"><%= comment.content %></div>
+                    </div>
+                <% }) %>
+            </div>
+
+                <%- include('./partials/script') %>
+                    <%- include('./partials/logout') %>
+</body>
+
+</html>

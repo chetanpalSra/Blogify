@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Blog Home - A World of Ideas 🌍</title>
+   <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container">
+            <svg width="100%" height="150" class="svg-container">
+                <defs>
+                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <text x="50%" y="50%" class="gradient-text" text-anchor="middle" dy=".3em" fill="url(#gradient1)">
+                    Welcome to the World of Blogs ✍️🌟
+                </text>
+            </svg>
+
+     
+        <div class="container1">
+            <div class="row row-cols-4">
+                <% blogs.forEach(blog => { %>
+                    <div class="col">
+                        <div class="card col card-edit" style="width: 18rem ;margin-top: -9.7px">
+                            <img src="<%= blog.coverImageUrl %>" alt="Blog Cover">
+                            <div class="card-body c-body"> 
+                                <h5 class="card-title c-title"><%= blog.title %></h5>
+                                <p><%= blog.body.slice(0, 150) %>...</p>
+                                <a href="/blog/<%= blog._id %>" class="btn btn-outline-primary btn-blog">View</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                <% }) %>
+            </div>
+         
+        </div>
+        <% if (!locals.user) { %>
+            <h4 class="sign-in-reminder container">Please sign in to add a blog ✍️🔑</h4>
+        <% } %>
+       
+    </div>
+   
+
+    <%- include('./partials/script') %>
+
+    <%- include('./partials/logout') %>
+</body>
+</html>
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <!-- including the code in this home page. -->
+    <title>Signup</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="container my-4">
+        <h3>Join us and start your journey today!🎉</h3>
+        <h6>It only takes a moment to create your account.</h6> 
+    </div>
+
+    <div class="container mt-4">
+        <form action="/user/signup" method="post">
+            <div class="mb-3">
+                <label for="Username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="Username" name="fullName" style="width: 50%;" >
+              </div>
+            <div class="mb-3">
+              <label for="Email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="email" style="width: 50%;">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="Password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="Password" name="password" style="width: 50%;">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+          </form>
+    </div>
+
+    <%- include('./partials/script') %>
+    <%- include('./partials/removeButton') %>
+
+</body>
+</html>

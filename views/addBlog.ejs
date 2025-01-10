@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Add New Blog</title>
+        <style>
+              body{
+               background-color: #161719;
+           }
+            /* Left Section Styling */
+            .left-section {
+                flex: 1;
+                /* background-color: #f9f9f9; */
+                background-color: #dedfe1;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Right Section Styling */
+            .right-section {
+                flex: 1;
+                /* background-color: #f8f9fa; */
+                background-color: #dedfe1;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .blog-link {
+                color: #007BFF;
+                /* Blue link color */
+                text-decoration: none;
+                /* Remove underline */
+                font-weight: bold;
+                transition: all 0.3s ease;
+                /* Smooth transition for hover and active effects */
+            }
+
+            .blog-link:hover {
+                color: #0056b3;
+                /* Darker blue on hover */
+                text-decoration: underline;
+                /* Underline on hover */
+                cursor: pointer;
+            }
+
+            .blog-link:active {
+                color: #004085;
+                /* Even darker blue when clicked */
+                transform: scale(0.98);
+                /* Slightly scale down the link on active (click) */
+            }
+
+            /* Responsive Design for Screen Sizes Below 768px */
+            @media (max-width: 768px) {
+                .right-section {
+                    display: none;
+                }
+
+                .left-section {
+                    flex: 1;
+                }
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+
+        <form class="container mt-5" action="/blog" method="post" enctype="multipart/form-data">
+            <h1 class="mt-3" style="color: #dedfe1;">📝 Compose Your Own Blog: Amplify Your Perspective and Engage the Global Community 🌐</h1>
+            <h4 class="mt-3" style="color: #dedfe1;">✨ Commence the Composition of Your Blog Post! 🖋️📚</h4>
+
+            <!-- Flex container to divide the form into two parts -->
+            <div class="d-flex gap-3">
+                <!-- Left Section -->
+                <div class="left-section">
+                    <div class="mb-3">
+                        <label for="coverImage" class="form-label">Cover Image</label>
+                        <input type="file" class="form-control" id="coverImage" name="coverImageUrl"  style="background-color:#f3f4f6">
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" required id="title" name="title" style="background-color:#f3f4f6">
+                    </div>
+                    <div class="mb-3">
+                        <label for="body">Body</label>
+                        <textarea class="form-control" placeholder="Write the body of your blog." id="body" name="body"
+                            required rows="7" style="background-color:#f3f4f6"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+
+                <!-- Right Section -->
+                <div class="right-section">
+
+                    <h3>📝 Blog Writing Tips & Tricks!</h3>
+                    <p>💡 <b>**Keep it concise:**</b> Readers love blogs that get to the point quickly.</p>
+                    <p>🎯 <b>**Add value:**</b> Share insights, tips, or experiences that can help your readers.</p>
+                    <p>📸<b> **Use visuals:**</b> A good image makes your blog more engaging.</p>
+                    <p>✍️ <b>**Be yourself:**</b> Your unique voice is what makes your blog special!</p>
+                    <hr>
+                    <p><b>📢 **Did You Know?**</b><br> Blogs with catchy titles get <b>**80% more clicks**!</b></p>
+                    <p>😊Make sure your blog reflects your unique voice and perspective. Happy blogging!</p>
+                    <p style="margin-top: -7px;">📚 **Organize your content logically and coherently.**</p>
+                    <p style="margin-top: -7px;"> 🖊️ <u>Choose a catchy title.</u></p>
+                    <p><b>Want to master the art of blogging? Check out this insightful article:</b></p>
+                    <a href="https://medium.com/@noureldin_z3r0/how-to-write-the-perfect-blog-post-my-10-000-word-journey-7b5b38525848"
+                        target="_blank" class="blog-link">
+                        How to Write the Perfect Blog Post!
+                    </a>
+                </div>
+            </div>
+        </form>
+
+        <%- include('./partials/script') %>
+
+        <%- include('./partials/logout') %>
+</body>
+
+</html>

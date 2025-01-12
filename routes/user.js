@@ -5,11 +5,11 @@ const {handleCreateUser,handleUserSignIn,handleUserLogout} = require('../control
 const router = Router();
 
 router.get('/signIn',(req,res)=>{
-    return res.render('SignIn',{activePage: 'signin'});
+    return res.render('signIn',{activePage: 'signin'});
 })
 
 router.get('/signUp',(req,res)=>{
-    return res.render('SignUp',{activePage: 'signup'})
+    return res.render('signUp',{activePage: 'signup'})
 })
 
 router.post('/signup',handleCreateUser);
